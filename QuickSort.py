@@ -19,19 +19,18 @@ def QuickSort(alist, first, last, verbose=False):
         _pivot = first
         _fst = first
         _lst = last
-        if verbose: print('_fst: {} \t_lst: {}'.format(first,last))    
+        if verbose: print(' first pointer = {} \tlast pointer = {}'.format(first,last))    
         while ( _fst < _lst ):
             while ( (alist[_fst] < alist[_pivot]) and _fst < last ): 
-                if verbose: print(' Incrementing _fst to {}'.format(_fst+1))
+                if verbose: print(' Incrementing first pointer to {}'.format(_fst+1))
                 _fst+=1
             while (alist[_lst] > alist[_pivot] and _lst > first ): 
-                if verbose: print(' Decrementing _lst to {}'.format(_lst-1))
+                if verbose: print(' Decrementing last pointer to {}'.format(_lst-1))
                 _lst-=1
             if _fst < _lst :
-                if verbose: print(' Changing {} by {}'.format(alist[_fst], alist[_lst]))
-                _aux = alist[_fst]
-                alist[_fst] = alist[_lst]
-                alist[_lst] = _aux
+                if verbose: print(' Changing values {} by {}'.format(alist[_fst], alist[_lst]))
+                #if verbose: print(' Changing {} by {}'.format(_fst, _lst ))
+                alist[_fst], alist[_lst] = alist[_lst], alist[_fst]
                 if verbose: print(alist)
 
         if verbose: print(' Changing {} by {}'.format(alist[_pivot], alist[_lst]))

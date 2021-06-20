@@ -16,19 +16,14 @@ def BubbleSort(alist, verbose):
         task_completed = True
         for id,item in enumerate(alist):
             try:
-                if verbose : print('{} > {} ?'.format(alist[id], alist[id+1]))
+                if verbose : print('Is {} greater than {} ?'.format(alist[id], alist[id+1]))
                 if alist[id] > alist[id+1]:
                     task_completed = False
-                    if verbose : print(' - aux = {}'.format(item))
-                    aux = item
-                    if verbose : print(' - alist[id] = {}'.format(alist[id+1]))
-                    alist[id] = alist[id+1]
-                    if verbose : print(' - alist[id+1] = {}'.format(aux))
-                    alist[id+1] = aux
+                    if verbose : print(' - Changing alist[{}] = {} by alist[{}] = {}'.format(id,alist[id],id+1,alist[id+1]))
+                    alist[id], alist[id+1] = alist[id+1], alist[id]
                     if verbose : print('{}'.format(alist))
             except:
                 pass
-
     return alist
 
 if __name__=='__main__':
@@ -37,7 +32,7 @@ if __name__=='__main__':
         my_cluttered_list = list(range(int(list_length)))
         random.shuffle(my_cluttered_list)
         print(my_cluttered_list)
-        verbose_question= input('Do you want print the BubbleSort steps? [ y / n ] : ')
+        verbose_question = input('Do you want print the BubbleSort steps? [ y / n ] : ')
         verbose = True if verbose_question.upper() == 'Y' else False
         print('Starting BubbleSort() ...')
         start = time.perf_counter()
